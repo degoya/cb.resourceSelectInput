@@ -1,6 +1,6 @@
 <?php
 /**
- * resourceselect input for ContentBlocks
+ * resourceselect input for ContentBlocks 
  *
  * Copyright 2015 by Alexander Herling <kontakt@degoya.de>
  *
@@ -18,3 +18,4 @@ $modx->request->handleRequest(array(
     'processors_path' => $path,
     'location' => '',
 ));
+ 

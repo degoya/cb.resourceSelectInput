@@ -2,13 +2,13 @@
 
 class ResourceSelectInput extends cbBaseInput {
     public $defaultIcon = 'chunk_A';
-    public $defaultTpl = '<resource>[[+value]]</resource>';
+    public $defaultTpl = '[[+value]]';
 
 
     /**
      * @return array
      */
-    public function getJavaScripts() {
+    public function getJavaScripts() { 
         $assetsUrl = $this->modx->getOption('resourceselectinput.assets_url', null, MODX_ASSETS_URL . 'components/resourceselectinput/');
         return array(
             $assetsUrl . 'js/inputs/resourceselect.input.js',
@@ -26,6 +26,17 @@ class ResourceSelectInput extends cbBaseInput {
         $corePath = $this->modx->getOption('resourceselectinput.core_path', null, MODX_CORE_PATH . 'components/resourceselectinput/');
 
         $template = file_get_contents($corePath . 'templates/resourceselectinput.tpl');
+
+        if ($this->modx->resource) {
+            $resource_context_key = $this->modx->resource->get('context_key');
+            $resource_id = $this->modx->resource->get('id');
+            $resource_template = $this->modx->resource->get('template');
+            $template = str_replace('[[+contextKey]]', $resource_context_key, $template);
+            $template = str_replace('[[+id]]', $resource_id, $template);
+            $template = str_replace('[[+template]]', $resource_template, $template);
+        } else {
+            $context_key = 'mgr';
+        }       
 
         // Wrap the template, giving the input a reference of "resourceselectinput", and
         // add it to the returned array.
@@ -50,28 +61,54 @@ class ResourceSelectInput extends cbBaseInput {
     public function getFieldProperties()
     {
         return array(
+
             array(
-                'key' => 'resource_parent_id',
-                'fieldLabel' => 'Parent Resource ID to get Child list from',
+                'key' => 'resource_context',
+                'fieldLabel' => 'Limit Context',
+                'xtype' => 'contentblocks-combo-boolean',
+                'default' => '1',
+                'description' => 'Set to yes to Limit to current context of the block or no to select from all available contexts'
+            ),
+            array(
+                'key' => 'resource_limit',
+                'fieldLabel' => 'Limit Resources',
+                'xtype' => 'numberfield',
+                'default' => '',
+                'description' => 'Limit maximum amount of resources to return'
+            ),
+            array(
+                'key' => 'resource_template',
+                'fieldLabel' => 'Filter Templates',
                 'xtype' => 'textfield',
                 'default' => '0',
-                'description' => 'Enter Partent Resource ID enter 0 for root of context'
+                'description' => 'include only templates from specified resources (csv), i.E. 1,6,8'
             ),
             array(
-                'key' => 'resource_published',
-                'fieldLabel' => 'Show only published Resources',
+                'key' => 'sortfield',
+                'fieldLabel' => 'Sortfield',
                 'xtype' => 'textfield',
-                'default' => '1',
-                'description' => 'Enter 1 to show only published and 0 to show unpublished'
+                'default' => 'pagetitle',
+                'description' => 'Enter field to sort by i.E. publishedon,template,pagetitle or id'
             ),
             array(
-                'key' => 'resource_searchable',
-                'fieldLabel' => 'Show only searchable Resources',
+                'key' => 'sortorder',
+                'fieldLabel' => 'Sortorder',
                 'xtype' => 'textfield',
-                'default' => '1',
-                'description' => 'Enter 1 to show only searchable and 0 to show nonsearchable'
+                'default' => 'ASC',
+                'description' => 'Enter ASC or DESC'
             ),
-
+            array(
+                'key' => 'resource_where',
+                'fieldLabel' => 'where',
+                'xtype' => 'textarea',
+                'default' => '',
+                'description' => 'enter json where to add to the query i.E.<br/>
+                <strong>include only published IDs</strong> [{"published":"1"}]<br/>
+                <strong>include from Parent IDs</strong> [{"parent:IN":[34,56]}]<br/>
+                <strong>include IDs</strong> [{"id:IN":[68,69]}]<br/>
+                <strong>exclude Page by Title</strong> [{"pagetitle:!=":"Home"}]<br/>
+                <strong>exclude IDs</strong> [{"id:NOT IN":[67,68,69]}]'
+            ),
         );
     }
 }
