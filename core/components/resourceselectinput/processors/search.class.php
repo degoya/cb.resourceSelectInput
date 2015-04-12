@@ -91,40 +91,8 @@ class ContentBlocksResourceSearchProcessor extends modObjectGetListProcessor {
         $objectArray = $object->toArray('', false, true);
         $objectArray['pagetitle'] = htmlentities($objectArray['pagetitle'], ENT_COMPAT, $charset);
         $objectArray['id'] = (string)$objectArray['id'];
-        switch ($objectArray['template']) {
-            case 8:
-                $objectArray['templatelabel'] = ' ('.$objectArray['id'].') - (Quote)';
-                break;
-            case 12:
-                $objectArray['templatelabel'] = ' ('.$objectArray['id'].') - (Statement)';
-                break;
-            case 4:
-                $objectArray['templatelabel'] = ' ('.$objectArray['id'].') - (Case)';
-                break;
-            case 9:
-                $objectArray['templatelabel'] = ' ('.$objectArray['id'].') - (Customer Relation)';
-                break;
-            case 6:
-                $objectArray['templatelabel'] = ' ('.$objectArray['id'].') - (Job)';
-                break;
-            case 5:
-                $objectArray['templatelabel'] = ' ('.$objectArray['id'].') - (News)';
-                break;
-            case 1:
-                $objectArray['templatelabel'] = ' ('.$objectArray['id'].') - (Base Page)';
-                break;
-            case 2:
-                $objectArray['templatelabel'] = ' ('.$objectArray['id'].') - (Project Overview Page)';
-                break;
-            case 13:
-                $objectArray['templatelabel'] = ' ('.$objectArray['id'].') - (Archiv Page)';
-                break;
-            case 14:
-                $objectArray['templatelabel'] = ' ('.$objectArray['id'].') - (Benefits Page)';
-                break;
-        } 
+        $objectArray['templatelabel'] = ' ('.$objectArray['id'].')';
         $objectArray['label'] = $objectArray['pagetitle'].$objectArray['templatelabel'];
-         
         return $objectArray;
     }
 
@@ -147,4 +115,4 @@ class ContentBlocksResourceSearchProcessor extends modObjectGetListProcessor {
         return $this->modx->toJSON($array);
     }
 }
-return 'ContentBlocksResourceSearchProcessor'; 
+return 'ContentBlocksResourceSearchProcessor';
