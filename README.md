@@ -4,10 +4,12 @@ cb.resourceSelectInput v2
 ResourceSelectInput V2 - Custom Input type for modmore contentBlocks
 V2 is a complete Rewrite of the Inputtype and is not compatible with V1.
 
-Resource Select Box with childs of selected parent resource. 
-You can filter the select box and use a bunch of new Options to prefilter the Resources to your wishes. 
-This Input can be used to display resource data inside another resource in combination with getResourceField.
-A custom input type for modmore's great modx extra Content Blocks.
+Features:
+=========
+- Resource Select Box with childs of selected parent resource. 
+- You can filter the select box and use a bunch of new Options to prefilter the Resources to your wishes. 
+- This Input can be used to display resource data inside another resource in combination with getResourceField.
+- A custom input type for modmore's great modx extra Content Blocks.
 
 How to install:
 ===============
