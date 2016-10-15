@@ -4,6 +4,11 @@ cb.resourceSelectInput v2
 ResourceSelectInput V2 - Custom Input type for modmore contentBlocks
 V2 is a complete Rewrite of the Inputtype and is not compatible with V1.
 
+Developed by Alexander Herling
+
+Thanks to sepiariver for adding the Git Package Management Support
+
+
 Features:
 =========
 - Resource Select Box with childs of selected parent resource. 
@@ -11,8 +16,13 @@ Features:
 - This Input can be used to display resource data inside another resource in combination with getResourceField.
 - A custom input type for modmore's great modx extra Content Blocks.
 
-How to install:
-===============
+How to install from Transport Package:
+======================================
+- Use the Transport Package from the _packages Folder and install in your Modx installation via Extras -> Package Management.
+- You are Done - Go and create your field with inputtype ResourceSelect.
+
+How to install manually:
+========================
 - Copy the folders assets & core to your modx installation folder.
 - Create a plugin with the content of resourceselectinput.plugin.php and trigger on ContentBlocks_RegisterInputs event.
 - You are Done - Go and create your field with inputtype ResourceSelect.
@@ -59,4 +69,3 @@ include IDs [{"id:IN":[68,69]}]
 exclude Page by Title [{"pagetitle:!=":"Home"}]
 
 exclude IDs [{"id:NOT IN":[67,68,69]}
-
