@@ -6,7 +6,7 @@ V2 is a complete Rewrite of the Inputtype and is not compatible with V1.
 
 Developed by Alexander Herling
 
-Thanks to sepiariver for adding the Git Package Management Support
+Thanks to sepiariver for adding the Git Package Management Support (https://github.com/theboxer/Git-Package-Management)
 
 
 Features:
