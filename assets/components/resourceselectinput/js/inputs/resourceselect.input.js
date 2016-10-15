@@ -57,9 +57,10 @@
             var resource_template = data.properties.resource_template || "";
             var sortfield = data.properties.sortfield || "";
             var sortorder = data.properties.sortorder || "";
+            var assetsUrl = MODx.config['resourceselectinput.assets_url'] || MODx.config.assets_url + 'components/resourceselectinput/';
             $.ajax({
                 dataType: 'json',
-                url: '/assets/components/resourceselectinput/connector.php',
+                url: assetsUrl + 'connector.php',
                 data: {
                     action: 'search',
                     query: query,
@@ -102,7 +103,7 @@
                     dom.removeClass('contentblocks-field-loading');
                 }
             });
-        }
+        };
         input.getData = function () {
             return {
                 value: dom.find('.contentblocks-field-resourceselect select').val()
@@ -110,5 +111,5 @@
         };
 
         return input;
-    }
+    };
 })(vcJquery, ContentBlocks);
