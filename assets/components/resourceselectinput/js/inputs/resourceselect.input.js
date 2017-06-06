@@ -103,7 +103,7 @@
                     dom.removeClass('contentblocks-field-loading');
                 }
             });
-        };
+        }
         input.getData = function () {
             return {
                 value: dom.find('.contentblocks-field-resourceselect select').val()
@@ -111,5 +111,5 @@
         };
 
         return input;
-    };
+    }
 })(vcJquery, ContentBlocks);

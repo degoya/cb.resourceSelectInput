@@ -12,7 +12,7 @@ if ($modx->event->name == 'ContentBlocks_RegisterInputs') {
 
     // Create an instance of your input type, passing the $contentBlocks var
     $instance = new ResourceSelectInput($contentBlocks);
-print(__LINE__);
+
     // Pass back your input reference as key, and the instance as value
     $modx->event->output(array(
         'resourceselectinput' => $instance

@@ -1,15 +1,21 @@
 {
-    "name": "cb.resourceSelectInput v2",
+    "name": "ResourceSelectInput",
     "lowCaseName": "resourceselectinput",
-    "description": "ResourceSelectInput V2 - Custom Input type for modmore contentBlocks V2 is a complete Rewrite of the Inputtype and is not compatible with V1.",
+    "description": "Resource Select Custom Input type for modmore ContentBlocks",
     "author": "Alexander Herling",
-    "version": "2.0.0-rc1",
+    "version": "2.0.0",
     "package":{
         "elements": {
             "plugins": [{
                 "name": "ResourceSelectInput",
+                "description": "Register ResourceSelectInput in ContentBlocks.",
                 "events": ["ContentBlocks_RegisterInputs"]
             }]
         }
+    },
+    "build": {
+        "readme": "docs/readme.txt",
+        "license": "docs/license.txt",
+        "changelog": "docs/changelog.txt"
     }
 }
