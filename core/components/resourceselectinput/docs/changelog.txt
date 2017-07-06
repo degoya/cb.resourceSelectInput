@@ -1,0 +1,5 @@
+Changelog for ResourceSelectInput
+=================================
+
+- 2.0.0
+    - Initial v2 Release
