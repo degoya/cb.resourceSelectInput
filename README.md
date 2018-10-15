@@ -69,3 +69,11 @@ include IDs [{"id:IN":[68,69]}]
 exclude Page by Title [{"pagetitle:!=":"Home"}]
 
 exclude IDs [{"id:NOT IN":[67,68,69]}
+
+
+Available Config Options
+===================================
+
+**Assets URL**
+
+resourceselectinput.assets_url
