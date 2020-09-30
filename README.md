@@ -16,6 +16,11 @@ Features:
 - This Input can be used to display resource data inside another resource in combination with getResourceField.
 - A custom input type for modmore's great modx extra Content Blocks.
 
+How to install from the MODX repository:
+========================================
+- goto Package Management in the MODX Manager and Search for cb.resourceSelectInput v2 and install it.
+- can be found under the link https://modx.com/extras/package/cb.resourceselectinputv2
+
 How to install from Transport Package:
 ======================================
 - Use the Transport Package from the _packages Folder and install in your Modx installation via Extras -> Package Management.
